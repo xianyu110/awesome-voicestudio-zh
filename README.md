@@ -11,6 +11,20 @@
 
 ---
 
+## 截图索引
+
+| # | 文件 | 类型 | 说明 |
+|---|------|------|------|
+| 1 | [`images/01-download.png`](images/01-download.png) | **真实** | AppImage v0.5.7 下载 |
+| 2 | [`images/02-install-script.png`](images/02-install-script.png) | **真实** | `voicestudio.sh/install` 日志 |
+| 3 | [`images/03-launch-log.png`](images/03-launch-log.png) | **真实** | AppImage 启动日志 |
+| 4 | [`images/04-gui-runtime-setup.png`](images/04-gui-runtime-setup.png) | **真实** | Install local runtime GUI（路径已脱敏） |
+| 5 | [`images/05-clone-consent-schematic.png`](images/05-clone-consent-schematic.png) | **示意图** | 克隆同意 / 模型步骤（未下载数 GB runtime） |
+
+> 未登录账号、未输入 API Key；runtime 路径中的用户名已替换为 `<user>`。完整 runtime（约 9 GB）未在沙盒下载。
+
+---
+
 ## 这是什么？
 
 VoiceStudio 是开源桌面应用（当前 **仅 Electron** 桌面 / Web UI；0.5.3 为最后一版 Tauri），能力包括：
@@ -86,6 +100,10 @@ curl -fsSL https://voicestudio.sh/install | sh -s -- --version 0.5.7
 curl -fsSL https://voicestudio.sh/install | sh -s -- --uninstall
 ```
 
+真实一键安装日志：
+
+![VoiceStudio install 脚本](images/02-install-script.png)
+
 若 `voicestudio.sh/install` 不可达，可直接：
 
 ```bash
@@ -114,6 +132,18 @@ irm https://voicestudio.sh/install | iex
 | Windows ARM64 | `VoiceStudio-0.5.7-win-arm64.exe` |
 | Linux | `VoiceStudio-0.5.7-linux-x64.AppImage` 或 `.deb` |
 
+真实 AppImage 下载确认：
+
+![VoiceStudio AppImage 下载](images/01-download.png)
+
+启动日志摘录：
+
+![VoiceStudio 启动日志](images/03-launch-log.png)
+
+首次「Install local runtime」界面（路径已脱敏为 `/home/<user>/...`；**未**点击安装、**未**下载数 GB 依赖）：
+
+![VoiceStudio runtime 安装界面](images/04-gui-runtime-setup.png)
+
 也可：`sudo snap install voicestudio`（Linux，以 snap 源为准）。  
 平台分步：[macOS](https://github.com/debpalash/VoiceStudio/blob/main/docs/install/macos.md) · [Windows](https://github.com/debpalash/VoiceStudio/blob/main/docs/install/windows.md) · [Linux](https://github.com/debpalash/VoiceStudio/blob/main/docs/install/linux.md)。
 
@@ -131,7 +161,9 @@ irm https://voicestudio.sh/install | iex
 6. 生成并试听；满意后再做配音 / 批量任务。  
 7. （可选）查看 Local API / MCP 文档，接到你的 Agent 工作流。
 
-终端风格示意：
+> **示意图**（未下载 runtime / 模型，未进行真实克隆——须本人同意 + 数 GB 磁盘）：
+
+![VoiceStudio 克隆同意示意图](images/05-clone-consent-schematic.png)
 
 ```text
 $ curl -fsSL https://voicestudio.sh/install | sh
